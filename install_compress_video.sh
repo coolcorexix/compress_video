@@ -32,7 +32,7 @@ if [ ! -f "compress_video.sh" ]; then
 fi
 
 # Copy the compress_video script to /usr/local/bin
-curl -o compress_video.sh https://raw.githubusercontent.com/coolcorexix/compress_video/refs/heads/main/install_compress_video.sh
+curl -o compress_video.sh https://raw.githubusercontent.com/coolcorexix/compress_video/refs/heads/main/compress_video.sh
 echo "Installing compress_video script..."
 sudo cp compress_video.sh /usr/local/bin/compress_video
 # Remove the downloaded script
