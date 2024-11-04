@@ -29,11 +29,11 @@ file
 curl -o compress_video.sh https://raw.githubusercontent.com/coolcorexix/compress_video/refs/heads/main/compress_video.sh
 echo "Installing compress_video script..."
 sudo cp compress_video.sh /usr/local/bin/compress_video
-# Remove the downloaded script
-rm compress_video.sh
+
 
 # Make the script executable
 sudo chmod +x /usr/local/bin/compress_video
-
 echo "Installation complete! You can now use the 'compress_video' command."
 echo "Usage: compress_video <input_file> [output_file]" 
+# Remove the downloaded script
+rm compress_video.sh
