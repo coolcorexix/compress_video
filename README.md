@@ -13,7 +13,7 @@ A simple command-line tool to compress videos using FFmpeg.
 Install with a single command:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/yourusername/repo/1234567890/install_compress_video.sh | sudo bash
+curl -sSL https://raw.githubusercontent.com/coolcorexix/compress_video/refs/heads/main/install_compress_video.sh | sudo bash
 ```
 
 ## Usage
@@ -51,7 +51,7 @@ If you prefer to inspect the scripts before installation:
 
 1. Download the installation script:
    ```bash
-   curl -O https://raw.githubusercontent.com/yourusername/repo/1234567890/install_compress_video.sh
+   curl -O https://raw.githubusercontent.com/coolcorexix/compress_video/refs/heads/main/install_compress_video.sh
    ```
 
 2. Make it executable and run:
