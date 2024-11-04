@@ -32,12 +32,6 @@ sudo cp compress_video.sh /usr/local/bin/compress_video
 # Remove the downloaded script
 rm compress_video.sh
 
-# Check if source file exists
-if [ ! -f "compress_video.sh" ]; then
-    echo "Error: compress_video.sh not found in current directory"
-    exit 1
-fi
-
 # Make the script executable
 sudo chmod +x /usr/local/bin/compress_video
 
