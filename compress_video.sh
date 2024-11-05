@@ -100,13 +100,10 @@ if [ -f "$output_file" ]; then
     echo "Original size: $(format_size $original_size)"
     echo "New size: $(format_size $new_size)"
     echo "File size reduced by: $size_reduction%"
-    # Function to create a hyperlink to show in Finder
-    create_finder_link() {
-        local file_path=$1
-        echo "Show in Finder: file://$file_path"
-    }
-
-    create_finder_link "$(realpath "$output_file")"
+    # Show parent folder of output file
+    parent_folder=$(dirname "$(realpath "$output_file")")
+    echo "Parent folder: $parent_folder"
+    echo "Output file: $output_file"
 else
     echo -e "\nError: Compression failed"
     exit 1
