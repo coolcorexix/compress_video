@@ -1,6 +1,8 @@
 # Compress Video Installation Guide
 
-A simple command-line tool to compress videos using FFmpeg.
+A simple command-line tool to quickly compress video using FFmpeg. One command, one param.
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/coolcorexil)
 
 ## Prerequisites
 
