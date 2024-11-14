@@ -13,13 +13,13 @@ on run {input}
 	set progress total steps to 100
 	set progress description to "Compressing video..."
 	set progress additional description to "This may take several minutes"
-
-
+	
+	
 	-- Create a temporary file for progress
 	set progressFile to do shell script "mktemp"
 	
 	-- Create the ffmpeg command with progress monitoring
-	set ffmpegCmd to "/opt/homebrew/bin/ffmpeg -i " & quoted form of inputFile & " -progress " & quoted form of progressFile  & " -vcodec libx264 -crf 28 " & quoted form of outputFile & " &>/dev/null"
+	set ffmpegCmd to "/opt/homebrew/bin/ffmpeg -i " & quoted form of inputFile & " -progress " & quoted form of progressFile & " -vcodec libx264 -crf 28 " & quoted form of outputFile & " &>/dev/null"
 	display dialog "ffmpeg command: " & ffmpegCmd buttons {"OK"} default button "OK"
 	-- Create a handler for duration extraction
 	set durationCmd to "/opt/homebrew/bin/ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 " & quoted form of inputFile & " | sed 's/\\./,/'"
@@ -36,18 +36,12 @@ on run {input}
 		set pid to do shell script "cat " & quoted form of tempPIDFile
 		display dialog "Compression started with PID: " & pid buttons {"OK"} default button "OK"
 		repeat
-			try
-				-- Get current time from ffmpeg progress
-				set currentTime to do shell script "grep 'out_time_ms' " & quoted form of progressFile & " | tail -n 1 | cut -d '=' -f 2"
-				-- won't be visible if Do not disturb is enabled
-				display notification with title (currentTime as number) / 1000 / totalDuration & "%" subtitle "text"
-				
-				if currentTime is not "" then					
-					set progressPercent to (currentTime / totalDuration) * 100
-					display notification "Progress: " & (round (progressPercent) & "%") with title "Video Compression"
-				end if
-			end try
 			
+			-- Get current time from ffmpeg progress
+			set currentTime to do shell script "grep 'out_time_ms' " & quoted form of progressFile & " | tail -n 1 | cut -d '=' -f 2"
+			-- won't be visible if Do not disturb is enabled
+			-- can not change icon consider use terminal-notifier
+			display notification with title "Compression in Progress: " & ((round ((currentTime as number) / 10000 / totalDuration) rounding down) as string) & "%" subtitle "Please wait..." sound name "Glass"
 			-- Check if process is still running
 			try
 				do shell script "ps -p " & pid
@@ -65,12 +59,3 @@ on run {input}
 		display dialog "Error compressing video: " & errMsg buttons {"OK"} default button "OK" with icon stop
 	end try
 end run
-
--- Helper function to split string
-on split(theString, theDelimiter)
-	set oldDelimiters to AppleScript's text item delimiters
-	set AppleScript's text item delimiters to theDelimiter
-	set theArray to every text item of theString
-	set AppleScript's text item delimiters to oldDelimiters
-	return theArray
-end split
