@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Installing compress_video dependencies..."
+PATH=$PATH:/opt/homebrew/bin
 
 # Check if ffmpeg is installed
 if ! which ffmpeg &> /dev/null; then
