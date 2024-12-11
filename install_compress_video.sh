@@ -45,6 +45,6 @@ echo "Usage: compress_video <input_file>"
 # Remove the downloaded script
 rm compress_video.sh
 rm compress_video_quick_action.zip
-// folder get created during unzip
+# folder get created during unzip
 rm -rf __MACOSX 
 rm -rf compress_video.workflow
