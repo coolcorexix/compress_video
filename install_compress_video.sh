@@ -29,10 +29,10 @@ fi
 
 
 # Copy the compress_video script to /usr/local/bin
-curl -o -f compress_video.sh https://raw.githubusercontent.com/coolcorexix/compress_video/refs/heads/main/compress_video.sh
+curl -o compress_video.sh https://raw.githubusercontent.com/coolcorexix/compress_video/refs/heads/main/compress_video.sh
 echo "Installing compress_video script..."
-curl -o -f compress_video_quick_action.zip https://raw.githubusercontent.com/coolcorexix/compress_video/refs/heads/main/workflows/compress_video.workflow.zip
-unzip -f compress_video_quick_action.zip
+curl -o compress_video_quick_action.zip https://raw.githubusercontent.com/coolcorexix/compress_video/refs/heads/main/workflows/compress_video.workflow.zip
+unzip -u compress_video_quick_action.zip
 
 cp -R -f compress_video.workflow ~/Library/Services 
 sudo cp -f compress_video.sh /usr/local/bin/compress_video
