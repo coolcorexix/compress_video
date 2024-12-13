@@ -2,6 +2,8 @@
 
 # this script has to be run without admin privileges because it call brew install
 
+PATH=$PATH:/opt/homebrew/bin
+
 # Check if ffmpeg is installed
 if ! which ffmpeg &> /dev/null; then
     echo "FFmpeg not found. Installing FFmpeg..."
